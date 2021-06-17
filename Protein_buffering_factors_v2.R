@@ -451,63 +451,6 @@ mutations.subset2<- table(mutations.subset1$Hugo_Symbol)
 mutations.FrameShift<-data.frame(Hugo_Symbol=rownames(mutations.subset2), 
                                         mutations.FrameShift=mutations.subset2)#18586 genes
 
-mutations.nonsense.missense
-mutations.FrameShift
-### Nonsense_Mutation
-## Protein gain ROC= 0.500
-## Protein loss ROC= 0.504
-
-### Silent
-## Protein gain ROC= 0.509
-## Protein loss ROC= 0.503
-
-### Missence_mutation
-## Protein gain ROC= 0.502
-## Protein loss ROC= 0.510
-
-## Frame_Shift_Del
-## Protein gain ROC= 0.506
-## Protein loss ROC= 0.517
-
-## Frame_Shift_Ins
-## Protein gain ROC= 0.522
-## Protein loss ROC= 0.521
-
-## De_novo_Start_OutOfFrame
-## Protein gain ROC= 0.506
-## Protein loss ROC= 0.520
-
-## Splice_Site
-## Protein gain ROC= 0.513
-## Protein loss ROC= 0.501
-
-## Start_Codon_SNP
-## Protein gain ROC= 0.496
-## Protein loss ROC= 0.528
-
-## In_Frame_Del
-## Protein gain ROC= 0.521
-## Protein loss ROC= 0.509
-
-## In_Frame_Ins
-## Protein gain ROC= 0.490
-## Protein loss ROC= 0.465
-
-## De_novo_Start_OutOfFrame, Frame_Shift_Ins, Frame_Shift_Del, Nonsense_Mutation
-## Protein gain ROC= 0.5035
-## Protein loss ROC= 0.5123
-
-## all
-## Protein gain ROC= 0.5057
-## Protein loss ROC= 0.5103
-
-## missence nonsence
-## Protein gain ROC= 0.5010
-## Protein loss ROC= 0.5086
-
-## frame shifts 
-## Protein gain ROC= 0.5117
-## Protein loss ROC= 0.5161
 
 
 ##### Step 3: Combine all factors into one dataset ####
@@ -555,7 +498,7 @@ colnames(Intrinsic_Disorder_homology)<- c("acc", "feature", "start..end", "conte
 
 
 ##Make dataframe
-#All.Factors.Diff<-CN.Diff.xRNA.yProt.ThreeGroups2
+All.Factors.Diff<-CN.Diff.xRNA.yProt.ThreeGroups2
 
 ## EDIT!!!:  add all factors one by one. merge via Gene_Symbol or Uniprot ID.
 All.Factors.Diff<-merge(x=All.Factors.Diff, y= mutations.nonsense.missense, 

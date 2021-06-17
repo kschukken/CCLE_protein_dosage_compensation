@@ -153,46 +153,6 @@ R.Buff.or.Scale.Gain(HSPA.list) # NS
 R.Buff.or.Scale.Loss(HSPA.list) # NS
 
 
-## Get Response to heat genes (go term: 0009408)
-#GO_term_Heat_response.txt
-#HeatResponse<- read.delim2("GO_term_Heat_response.txt",
-#                            dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#HeatResponse.list<-unique(HeatResponse$MGI)
-#HeatResponse.list<-toupper(HeatResponse.list)
-
-#P.Buff.or.Scale.Gain(HeatResponse.list) # NS
-#P.Buff.or.Scale.Loss(HeatResponse.list) # NS
-#R.Buff.or.Scale.Gain(HeatResponse.list) # NS
-#R.Buff.or.Scale.Loss(HeatResponse.list) # NS
-
-
-## Get all signaling receptor activity genes. GO term. 
-## no scaling/buffering 
-#signalActiviy<- read.delim2("GO_term_summary_signaling_receptor_activity.txt",
-#                            dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#signalActiviy.list<-unique(signalActiviy$MGI)
-#signalActiviy.list<-toupper(signalActiviy.list)
-
-#P.Buff.or.Scale.Gain(signalActiviy.list) # NS
-#P.Buff.or.Scale.Loss(signalActiviy.list) # 0.0011 buffer
-#R.Buff.or.Scale.Gain(signalActiviy.list) # NS
-#R.Buff.or.Scale.Loss(signalActiviy.list) # 9E-10
-
-
-
-## Get all Nonsense mediated decay proteins GO:0000184
-## These scale with Chrm loss/gain. maybe not as interesting.
-#NMD<- read.delim2("GO_term_NonsenseMediatedDecay.txt",
-#                  dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#NMD.list<-unique(NMD$MGI)#get gene names
-#NMD.list<-toupper(NMD.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(NMD.list) # NS
-#P.Buff.or.Scale.Loss(NMD.list) # NS
-#R.Buff.or.Scale.Gain(NMD.list) # NS
-#R.Buff.or.Scale.Loss(NMD.list) # 4E-05
-
-
 ###Cell Cycle, GO:0007049
 ## Scale with chrm gain loss
 #CellCycle<- read.delim2("GO_term_CellCycle.txt",
@@ -207,58 +167,6 @@ R.Buff.or.Scale.Gain(CellCycle.list) # 6E-04
 R.Buff.or.Scale.Loss(CellCycle.list) # 3E-09
 
 
-###transmembrane transporter activity, GO:0022857
-## buffered upon chrm gain/loss
-#transmembrane<- read.delim2("GO_term_transmembrane.txt",
-#                            dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#transmembrane.list<-unique(transmembrane$MGI)#get gene names
-#transmembrane.list<-toupper(transmembrane.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(transmembrane.list) # NS
-#P.Buff.or.Scale.Loss(transmembrane.list) # 1E-04 buffer
-#R.Buff.or.Scale.Gain(transmembrane.list) # 0.01
-#R.Buff.or.Scale.Loss(transmembrane.list) # 0.02
-
-
-
-###Cell-cell signalling, GO: 0007267
-##  buffer on loss, increase on gain
-#CCSignal<- read.delim2("GO_term_CellCellSignaling.txt",
-#                 dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#CCSignal.list<-unique(CCSignal$MGI)#get gene names
-#CCSignal.list<-toupper(CCSignal.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(CCSignal.list) # 0.021 scale
-#P.Buff.or.Scale.Loss(CCSignal.list) # 0.0064 buffer
-#R.Buff.or.Scale.Gain(CCSignal.list) # NS
-#R.Buff.or.Scale.Loss(CCSignal.list) # 3E-06
-
-
-### Immune Response, GO: 0006955
-## no buffering/scaling
-#Immune<- read.delim2("GO_term_ImmuneResponse.txt",
-#                       dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#Immune.list<-unique(Immune$MGI)#get gene names
-#Immune.list<-toupper(Immune.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(Immune.list) # NS
-#P.Buff.or.Scale.Loss(Immune.list) # NS
-#R.Buff.or.Scale.Gain(Immune.list) # 0.015
-#R.Buff.or.Scale.Loss(Immune.list) # NS
-
-
-### Intrinsic component of plasma membrane, GO: 0031226
-## buffering upon chrm gain/loss, more upon loss
-#PlasmaMembrane<- read.delim2("GO_term_PlasmaMembrane.txt",
-#                     dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#PlasmaMembrane.list<-unique(PlasmaMembrane$MGI)#get gene names
-#PlasmaMembrane.list<-toupper(PlasmaMembrane.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(PlasmaMembrane.list) # NS
-#P.Buff.or.Scale.Loss(PlasmaMembrane.list) # 7E-09 buffering
-#R.Buff.or.Scale.Gain(PlasmaMembrane.list) # NS
-#R.Buff.or.Scale.Loss(PlasmaMembrane.list) # 4E-15
-
 
 ### rRNA processing GO: 0006364
 ## buffetted upon chrm gain/loss
@@ -271,66 +179,6 @@ P.Buff.or.Scale.Gain(rRNA.list) # 3E-06 buffering
 P.Buff.or.Scale.Loss(rRNA.list) # 0.018 buffering
 R.Buff.or.Scale.Gain(rRNA.list) # 0.017
 R.Buff.or.Scale.Loss(rRNA.list) # 4E-14
-
-
-## Cell Adhesion, GO:0007155
-#CellAdhesion<- read.delim2("GO_term_CellAdhesion.txt",
-#                   dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#CellAdhesion.list<-unique(CellAdhesion$MGI)#get gene names
-#CellAdhesion.list<-toupper(CellAdhesion.list)#make string and uppercase
-#
-#P.Buff.or.Scale.Gain(CellAdhesion.list) # NS
-#P.Buff.or.Scale.Loss(CellAdhesion.list) # 3E-07 buffering
-#R.Buff.or.Scale.Gain(CellAdhesion.list) # NS
-#R.Buff.or.Scale.Loss(CellAdhesion.list) # <2E-16
-
-
-## tight junction, GO:0070160
-#TightJunction<- read.delim2("GO_term_TightJunction.txt",
-#                   dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#TightJunction.list<-unique(TightJunction$MGI)#get gene names
-#TightJunction.list<-toupper(TightJunction.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(TightJunction.list) # NS
-#P.Buff.or.Scale.Loss(TightJunction.list) # 0.0052
-#R.Buff.or.Scale.Gain(TightJunction.list) # NS
-#R.Buff.or.Scale.Loss(TightJunction.list) # 6E-05
-
-
-## Cellular response to heat, GO:0034605, 
-#CellHeat<- read.delim2("GO_term_CellularHeat.txt",
-#                            dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#CellHeat.list<-unique(CellHeat$MGI)#get gene names
-#CellHeat.list<-toupper(CellHeat.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(CellHeat.list) # 0.033 scale
-#P.Buff.or.Scale.Loss(CellHeat.list) # NS buffer
-#R.Buff.or.Scale.Gain(CellHeat.list) # NS
-#R.Buff.or.Scale.Loss(CellHeat.list) # NS
-
-
-## MRN complex (MRE11-RAD50-NBN complex), GO:0030870
-#MRNcomplex<- read.delim2("GO_term_MRNComplex.txt",
-#                       dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#MRNcomplex.list<-unique(MRNcomplex$MGI)#get gene names
-#MRNcomplex.list<-toupper(MRNcomplex.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(MRNcomplex.list) # NS
-#P.Buff.or.Scale.Loss(MRNcomplex.list) # NS
-#R.Buff.or.Scale.Gain(MRNcomplex.list) # 0.03
-#R.Buff.or.Scale.Loss(MRNcomplex.list) # NS
-
-
-## Telomere maintenance via telomere lengthening, GO:0010833
-#TeloLength<- read.delim2("GO_term_TelomereLength.txt",
-#                         dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#TeloLength.list<-unique(TeloLength$MGI)#get gene names
-#TeloLength.list<-toupper(TeloLength.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(TeloLength.list) # NS
-#P.Buff.or.Scale.Loss(TeloLength.list) # NS
-#R.Buff.or.Scale.Gain(TeloLength.list) # NS
-#R.Buff.or.Scale.Loss(TeloLength.list) # 4E-06
 
 
 
@@ -348,17 +196,6 @@ R.Buff.or.Scale.Loss(gene.list=EMSC.list) # 6E-11
 #ExtraMatrix.list<-CN.Diff.xRNA.yProt.ThreeGroups[CN.Diff.xRNA.yProt.ThreeGroups$RNA_Name %in% EMSC.list,]
 
 
-### Sphingolipid metabolic process GO:0006665
-#Sphingolipid<- read.delim2("GO_term_Sphingolipid.txt",
-#                           dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#Sphingolipid.list<-unique(Sphingolipid$MGI)#get gene names
-#Sphingolipid.list<-toupper(Sphingolipid.list)#make string and uppercase
-
-#P.Buff.or.Scale.Gain(gene.list=Sphingolipid.list) # NS
-#P.Buff.or.Scale.Loss(gene.list=Sphingolipid.list) # NS
-#R.Buff.or.Scale.Gain(gene.list=Sphingolipid.list) # NS
-#R.Buff.or.Scale.Loss(gene.list=Sphingolipid.list) # NS
-
 
 ### Small molecule metabolic process GO:0044281 ##
 #SM.Metabolism<- read.delim2("GO_term_SmallMoleculemetabolicPathway.txt",
@@ -372,15 +209,6 @@ R.Buff.or.Scale.Gain(gene.list=SM.Metabolism.list) # NS
 R.Buff.or.Scale.Loss(gene.list=SM.Metabolism.list) # 7E-03
 
 
-#### Metabolic process GO:0008152 
-#Metabolism<- read.delim2("GO_term_metabolicPathway.txt",
-#                         dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#Metabolism.list<-toupper(Metabolism.list)#make string and uppercase#
-
-#P.Buff.or.Scale.Gain(gene.list=Metabolism.list) # NS
-#P.Buff.or.Scale.Loss(gene.list=Metabolism.list) # 3E-05 Scale
-#R.Buff.or.Scale.Gain(gene.list=Metabolism.list) # 0.026
-#R.Buff.or.Scale.Loss(gene.list=Metabolism.list) # 5E-15
 
 
 ### mRNA splicing, via spliceosome  GO:0000398
@@ -395,17 +223,6 @@ R.Buff.or.Scale.Gain(gene.list=spliceosome.list) # NS
 R.Buff.or.Scale.Loss(gene.list=spliceosome.list) # 8E-06 scale
 
 
-# cellular senescence GO:0090398
-#senescence<- read.delim2("GO_term_Senescence.txt",
-#                          dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#senescence.list<-unique(senescence$MGI)#get gene names
-#senescence.list<-toupper(senescence.list)#make string and uppercase
-#
-#P.Buff.or.Scale.Gain(gene.list=senescence.list) # NS
-#P.Buff.or.Scale.Loss(gene.list=senescence.list) # NS
-#R.Buff.or.Scale.Gain(gene.list=senescence.list) # NS
-#R.Buff.or.Scale.Loss(gene.list=senescence.list) # NS
-
 
 # autophagy GO:0006914
 #Authophagy<- read.delim2("GO_term_Authophagy.txt",
@@ -418,17 +235,6 @@ P.Buff.or.Scale.Loss(gene.list=Authophagy.list) # 0.001131 scale
 R.Buff.or.Scale.Gain(gene.list=Authophagy.list) # 0.038 scale
 R.Buff.or.Scale.Loss(gene.list=Authophagy.list) # 0.085 NS scale
 
-
-# intrinsic component of membrane, GO:0031224
-#IntMembrane<- read.delim2("GO_term_IntrinsicComponentMembrane.txt",
-#                         dec=".", header = TRUE, sep="\t", row.names=NULL) 
-#IntMembrane.list<-unique(IntMembrane$MGI)#get gene names
-#IntMembrane.list<-toupper(IntMembrane.list)#make string and uppercase#
-
-#P.Buff.or.Scale.Gain(gene.list=IntMembrane.list) # 0.0019 NS scale
-#P.Buff.or.Scale.Loss(gene.list=IntMembrane.list) # 3E-15 scale
-#R.Buff.or.Scale.Gain(gene.list=IntMembrane.list) # 0.021 scale
-#R.Buff.or.Scale.Loss(gene.list=IntMembrane.list) # <2E-16 NS scale
 
 
 #### CORUM proteins (protein complexes)
